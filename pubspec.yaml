@@ -1,0 +1,46 @@
+name: group_chat_app
+description: "A new Flutter project."
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.4.4 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  fluttertoast: ^8.2.5
+  macos_haptic_feedback: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  get_it: ^7.0.0
+  #state management
+  flutter_bloc: ^8.1.2
+  equatable: 2.0.5
+  font_awesome_flutter:
+
+  network_image: ^0.1.1
+
+  intl: ^0.18.1
+
+  #firebase
+  firebase_core:
+  firebase_auth: ^4.6.1
+  cloud_firestore: ^4.7.1
+  firebase_storage: ^11.2.1
+  google_sign_in: ^6.1.0
+  image_picker: ^0.8.7+5
+  #message shape bubble
+  bubble: ^1.2.1
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.5
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
