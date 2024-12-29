@@ -5,7 +5,7 @@ class GroupModel extends GroupEntity {
   const GroupModel({
     super.groupName,
     super.groupProfileImage,
-    super.timestamp,
+    super.createdAt,
     super.groupId,
     super.uid,
     super.lastMessage,
@@ -15,7 +15,7 @@ class GroupModel extends GroupEntity {
     return GroupModel(
       groupName: documentSnapshot.get('groupName'),
       groupProfileImage: documentSnapshot.get('groupProfileImage'),
-      timestamp: documentSnapshot.get('timestamp'),
+      createdAt: documentSnapshot.get('timestamp'),
       groupId: documentSnapshot.get('groupId'),
       uid: documentSnapshot.get('uid'),
       lastMessage: documentSnapshot.get('lastMessage'),
@@ -26,7 +26,7 @@ class GroupModel extends GroupEntity {
     return {
       "groupName": groupName,
       "groupProfileImage": groupProfileImage,
-      "timestamp": timestamp,
+      "createdAt": createdAt,
       "groupId": groupId,
       "uid": uid,
       "lastMessage": lastMessage,

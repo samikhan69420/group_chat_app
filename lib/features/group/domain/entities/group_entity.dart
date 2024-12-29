@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class GroupEntity extends Equatable {
   final String? groupName;
   final String? groupProfileImage;
-  final Timestamp? timestamp;
+  final Timestamp? createdAt;
   final String? groupId;
   final String? uid;
   final String? lastMessage;
@@ -12,7 +12,7 @@ class GroupEntity extends Equatable {
   const GroupEntity({
     this.groupName,
     this.groupProfileImage,
-    this.timestamp,
+    this.createdAt,
     this.groupId,
     this.uid,
     this.lastMessage,
@@ -22,7 +22,7 @@ class GroupEntity extends Equatable {
   List<Object?> get props => [
         groupName,
         groupProfileImage,
-        timestamp,
+        createdAt,
         groupId,
         uid,
         lastMessage,
