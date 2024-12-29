@@ -4,7 +4,7 @@ import 'package:group_chat_app/features/group/domain/entities/text_message_entit
 abstract class GroupRemoteDataSource {
   Future<void> getCreateGroup(GroupEntity groupEntity);
   Future<void> updateGroup(GroupEntity groupEntity);
-  Future<List<GroupEntity>> getGroups();
+  Stream<List<GroupEntity>> getGroups();
   Future<void> sendTextMessage(
       TextMessageEntity textMessageEntity, String channelId);
   Stream<List<TextMessageEntity>> getMessages(String channelId);

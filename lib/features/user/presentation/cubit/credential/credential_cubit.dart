@@ -51,8 +51,9 @@ class CredentialCubit extends Cubit<CredentialState> {
   Future<void> submitSignUp(UserEntity user) async {
     emit(CredentialLoading());
     try {
-      await signUpUsecase.call(user);
-      emit(CredentialSuccess());
+      await signUpUsecase.call(user).then(
+            (value) => emit(CredentialSuccess()),
+          );
     } on SocketException catch (_) {
       emit(CredentialFailure());
     } catch (_) {

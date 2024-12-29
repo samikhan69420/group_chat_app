@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:group_chat_app/features/global/const/page_const.dart';
 import 'package:group_chat_app/features/user/domain/entity/user_entity.dart';
 import 'package:group_chat_app/features/user/presentation/cubit/user/user_cubit.dart';
 import 'package:group_chat_app/on_generate_route.dart';
@@ -25,7 +26,9 @@ class AllUsers extends StatelessWidget {
             itemBuilder: (context, index) {
               final user = users[index];
               return ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, PageConst.singleChatPage);
+                },
                 title: Text(user.name!),
                 subtitle: Text(user.status!),
                 leading: SizedBox(

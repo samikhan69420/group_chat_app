@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:group_chat_app/features/app/home/home_page.dart';
 import 'package:group_chat_app/features/global/themes/style.dart';
+import 'package:group_chat_app/features/group/presentation/cubit/chat/chat_cubit.dart';
+import 'package:group_chat_app/features/group/presentation/cubit/group/group_cubit.dart';
 import 'package:group_chat_app/features/user/presentation/cubit/auth/auth_cubit.dart';
 import 'package:group_chat_app/features/user/presentation/cubit/auth/auth_state.dart';
 import 'package:group_chat_app/features/user/presentation/cubit/credential/credential_cubit.dart';
@@ -34,6 +36,8 @@ class MainApp extends StatelessWidget {
         BlocProvider<CredentialCubit>(create: (_) => di.sl<CredentialCubit>()),
         BlocProvider<SingleUserCubit>(create: (_) => di.sl<SingleUserCubit>()),
         BlocProvider<UserCubit>(create: (_) => di.sl<UserCubit>()),
+        BlocProvider<GroupCubit>(create: (_) => di.sl<GroupCubit>()),
+        BlocProvider<ChatCubit>(create: (_) => di.sl<ChatCubit>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

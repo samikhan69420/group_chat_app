@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:group_chat_app/features/global/themes/style.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:group_chat_app/features/group/presentation/group_page.dart';
+import 'package:group_chat_app/features/group/presentation/cubit/group/group_cubit.dart';
+import 'package:group_chat_app/features/group/presentation/pages/group_page.dart';
 import 'package:group_chat_app/features/user/domain/entity/user_entity.dart';
 import 'package:group_chat_app/features/user/presentation/cubit/auth/auth_cubit.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:group_chat_app/features/user/presentation/cubit/single_user/single_user_cubit.dart';
 import 'package:group_chat_app/features/user/presentation/cubit/user/user_cubit.dart';
 import 'package:group_chat_app/features/user/presentation/pages/all_users/all_users_page.dart';
@@ -23,10 +23,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late final TabController tabController;
-  final FirebaseAuth auth = FirebaseAuth.instance;
-  Future<String> getUid() async {
-    return auth.currentUser!.uid;
-  }
 
   @override
   void initState() {
@@ -36,6 +32,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         .getSingleUserProfile(user: UserEntity(uid: widget.uid));
     BlocProvider.of<UserCubit>(context)
         .getUsers(user: UserEntity(uid: widget.uid));
+    BlocProvider.of<GroupCubit>(context).getGroups();
   }
 
   @override
@@ -100,10 +97,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       body: TabBarView(
         physics: const BouncingScrollPhysics(),
         controller: tabController,
-        children: const [
-          GroupPage(),
-          AllUsers(),
-          ProfilePage(),
+        children: [
+          GroupPage(
+            uid: widget.uid,
+          ),
+          const AllUsers(),
+          const ProfilePage(),
         ],
       ),
     );

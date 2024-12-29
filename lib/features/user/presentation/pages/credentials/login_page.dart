@@ -113,7 +113,10 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   const Spacer(),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context, PageConst.forgotPasswordPage);
+                    },
                     child: const Text(
                       "Forgot Password",
                       style: TextStyle(

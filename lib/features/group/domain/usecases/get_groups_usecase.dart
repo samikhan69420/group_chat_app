@@ -6,7 +6,7 @@ class GetGroupsUsecase {
 
   GetGroupsUsecase({required this.repository});
 
-  Future<List<GroupEntity>> call() async {
+  Stream<List<GroupEntity>> call() {
     return repository.getGroups();
   }
 }
