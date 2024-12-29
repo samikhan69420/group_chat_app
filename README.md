@@ -1,3 +1,3 @@
-# group_chat_app
+# A chatting application that uses firebase
 
-A group chat app made in flutter.
+This app uses firebase for backend and flutter for frontend to deliver a user friendly and fast chatting app.
